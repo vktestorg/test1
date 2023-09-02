@@ -1,21 +1,14 @@
-name: Get Release Author
-
 on:
   workflow_dispatch:
-
 jobs:
-  check-member:
-    runs-on: ubuntu-latest
-    name: Check if an user exists
-    steps:
-      -name: build
-      id: get-members
-      uses: garnertb/get-team-members@v1
+  runs-on: ubuntu-latest
+  name: Action to update the member's list
+  steps:
+    - name: Member List
+      id: list-members
+      uses: RITct/members-list-action@main
       with:
-        org: vktestorg
-        team_slug: test
-        token: ${{ secrets.GITHUB_TOKEN }}
-      
-      -run: |
-        "echo ${{ steps.get-members.outputs.members }}"
-        shell: bash
+        org-name: vktestorg
+        file-path: 'members.json'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
