@@ -14,7 +14,7 @@ jobs:
         uses: tspascoal/get-user-teams-membership@v2
         id: teamAffiliation
         with:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           username: ${{ github.actor }}
           team: test1
       - name: Stop workflow if user is no member
