@@ -12,10 +12,10 @@ jobs:
         id: check-member
         uses: bryantson/check-member-exists-in-team-actions@1.0
         with:
-          team_slug: SOME_TEAM_NAME
-          org_slug: SOME_ORG_NAME
+          team_slug: test1
+          org_slug: vktestorg
           gh_token: ${{ secrets.GH_TOKEN }}
-          username: SOME_USER_NAME
+          username: vikramk20
 
       - name: Print whether member exists
         run: |
