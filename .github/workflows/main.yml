@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Get Release Author
-        run: echo ${{ toJson(github.event.release) }}
+        run: echo ${{ toJson(github.event) }} | jq .
