@@ -6,22 +6,19 @@ on:
       - published
 
 jobs:
-  get_release_author:
+  check-user:
+    name: Team affiliation
     runs-on: ubuntu-latest
-    permissions: write-all
-
     steps:
-      - name: Get Release Author
-        run: echo ${{ github.event.release.author.login }} 
-
-      - uses: tspascoal/get-user-teams-membership@v2
-        id: checkUserMember
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check user for team affiliation
+        uses: tspascoal/get-user-teams-membership@v2
+        id: teamAffiliation
         with:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
           username: ${{ github.actor }}
-          team: 'test1'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: display
-        run: echo Hello, ${{ steps.checkUserMember.outputs.isTeamMember }}
+          team: test1
+      - name: Stop workflow if user is no member
+        if: ${{ steps.teamAffiliation.outputs.isTeamMember == false }}
+        run: |
+          echo "You have no rights to trigger this job."
+          exit 1
