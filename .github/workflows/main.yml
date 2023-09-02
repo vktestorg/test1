@@ -9,6 +9,8 @@ jobs:
   check-user:
     name: Team affiliation
     runs-on: ubuntu-latest
+    permission:
+      read: org
     steps:
       - name: Check user for team affiliation
         uses: tspascoal/get-user-teams-membership@v2
