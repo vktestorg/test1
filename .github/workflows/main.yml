@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Get Release Author
-        run: echo "Release Author"
+        run: echo Release Author, ${{ github.event.release.author.login }}
