@@ -16,6 +16,6 @@ jobs:
         team_slug: test
         token: ${{ secrets.GITHUB_TOKEN }}
       
-      -run: }
+      -run: |
         "echo ${{ steps.get-members.outputs.members }}"
         shell: bash
