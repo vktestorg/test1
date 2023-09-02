@@ -9,15 +9,14 @@ jobs:
   check-user:
     name: Team affiliation
     runs-on: ubuntu-latest
-    permissions:
-      repository-projects: read
+
     steps:
       - name: Check user for team affiliation
         uses: tspascoal/get-user-teams-membership@v2
         id: teamAffiliation
         
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.vkpat }}
           username: ${{ github.actor }}
           team: test1
       - name: Stop workflow if user is no member
