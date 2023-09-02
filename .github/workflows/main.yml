@@ -10,8 +10,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Get Release Author
-        run: echo ${{ toJson(github.event) }}
+        run: echo ${{ github.event }}
