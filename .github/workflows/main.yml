@@ -20,7 +20,7 @@ jobs:
           TEAM=test1
           # Replace with your Personal Access Token (PAT)
           PAT=${{ secrets.GITHUB_TOKEN }}
-
+          echo $USERNAME
           MEMBERSHIP=$(curl -s -H "Authorization: token $PAT" "https://api.github.com/orgs/$ORG/teams/$TEAM/memberships/$USERNAME")
 
           echo MEMBERSHIP, $MEMBERSHIP
