@@ -8,6 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Check if an user exists
     steps:
+      -name: aaaaa
+        - id: get-members
+        uses: garnertb/get-team-members@v1
+        with:
+          org: vktestorg
+          team_slug: test1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+        - run: "echo ${{ steps.get-members.outputs.members }}"
+        shell: bash
       - name: Check if member exists
         id: check-member
         uses: bryantson/check-member-exists-in-team-actions@1.0
