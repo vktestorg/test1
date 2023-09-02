@@ -1,27 +1,22 @@
 name: Get Release Author
 
 on:
-  release:
-    types:
-      - published
+  workflow_dispatch:
 
 jobs:
-  check-user:
+  check-member:
     runs-on: ubuntu-latest
-
+    name: Check if an user exists
     steps:
-      - name: Check User Team Membership
-        run: |
-          # Replace with your GitHub username
-          USERNAME=vikramk20
-          # Replace with your organization name
-          ORG=vktestorg
-          # Replace with the name of the team you want to check membership for
-          TEAM=test1
-          # Replace with your Personal Access Token (PAT)
-          PAT=${{ secrets.GITHUB_TOKEN }}
-          echo $USERNAME
-          curl -s -H "Authorization: token $PAT" "https://api.github.com/orgs/$ORG/teams/$TEAM/memberships/$USERNAME"
+      - name: Check if member exists
+        id: check-member
+        uses: bryantson/check-member-exists-in-team-actions@1.0
+        with:
+          team_slug: SOME_TEAM_NAME
+          org_slug: SOME_ORG_NAME
+          gh_token: ${{ secrets.GH_TOKEN }}
+          username: SOME_USER_NAME
 
-    
-  
+      - name: Print whether member exists
+        run: |
+          echo "Does member exists: ${{ steps.check-member.outputs.exists-in-team }}"
