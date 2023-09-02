@@ -18,7 +18,7 @@ jobs:
         with:
           username: ${{ github.actor }}
           team: 'test1'
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: display
         run: echo Hello, ${{ steps.checkUserMember.outputs.isTeamMember }}
