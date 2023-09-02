@@ -9,11 +9,13 @@ jobs:
   check-user:
     name: Team affiliation
     runs-on: ubuntu-latest
-
+    permissions:
+      repository-projects: read
     steps:
       - name: Check user for team affiliation
-        uses: marcocarvalho/team-membership@v3
+        uses: tspascoal/get-user-teams-membership@v2
         id: teamAffiliation
+        
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           username: ${{ github.actor }}
