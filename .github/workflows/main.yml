@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Get Release Author
-        run: echo ${{ github.event }}
+        run: echo ${{ github.event }} | jq .
