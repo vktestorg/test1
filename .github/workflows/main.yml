@@ -7,20 +7,21 @@ on:
 
 jobs:
   check-user:
-    name: Team affiliation
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check user for team affiliation
-        uses: tspascoal/get-user-teams-membership@v2
-        id: teamAffiliation
-        
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          username: ${{ github.actor }}
-          team: test1
-      - name: Stop workflow if user is no member
-        if: ${{ steps.teamAffiliation.outputs.isTeamMember == false }}
+      - name: Check User Team Membership
         run: |
-          echo "You have no rights to trigger this job."
-          exit 1
+          # Replace with your GitHub username
+          USERNAME=vikramk20
+          # Replace with your organization name
+          ORG=vktestorg
+          # Replace with the name of the team you want to check membership for
+          TEAM=test1
+          # Replace with your Personal Access Token (PAT)
+          PAT=${{ secrets.GITHUB_TOKEN }}
+
+          MEMBERSHIP=$(curl -s -H "Authorization: token $PAT" "https://api.github.com/orgs/$ORG/teams/$TEAM/memberships/$USERNAME")
+
+          echo MEMBERSHIP, $MEMBERSHIP
+  
