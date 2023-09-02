@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Get Release Author
-        run: echo ${{ toJson(github.event.release.author.login) }} }jq .
+        run: echo ${{ toJson(github.event) }} }jq .
