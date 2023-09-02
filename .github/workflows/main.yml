@@ -12,3 +12,13 @@ jobs:
     steps:
       - name: Get Release Author
         run: echo ${{ github.event.release.author.login }} 
+
+      - uses: tspascoal/get-user-teams-membership@v2
+        id: checkUserMember
+        with:
+          username: ${{ github.actor }}
+          team: 'octocats'
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+
+      - name: display
+        run: echo Hello, ${{ steps.checkUserMember.outputs.isTeamMember }}
