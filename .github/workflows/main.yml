@@ -14,7 +14,7 @@ jobs:
         with:
           team_slug: test1
           org_slug: vktestorg
-          gh_token: ${{ secrets.GH_TOKEN }}
+          gh_token: ${{ secrets.GITHUB_TOKEN }}
           username: vikramk20
 
       - name: Print whether member exists
