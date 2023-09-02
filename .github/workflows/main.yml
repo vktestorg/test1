@@ -16,7 +16,7 @@ jobs:
         id: teamAffiliation
         
         with:
-          GITHUB_TOKEN: ${{ secrets.github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           username: ${{ github.actor }}
           team: test1
       - name: Stop workflow if user is no member
