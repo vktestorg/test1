@@ -10,19 +10,5 @@ jobs:
     steps:
       - name: Check User Team Membership
         run: |
-          # Replace with your GitHub username
-          USERNAME=vikramk20
-          # Replace with your organization name
-          ORG=vktest
-          # Replace with the name of the team you want to check membership for
-          TEAM=test1
-          # Replace with your Personal Access Token (PAT)
-          PAT=${{ secrets.VK_TOK }}
-          curl -s -H "Accept: application/vnd.github+json"  -H "Authorization: Bearer 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"  https://api.github.com/orgs/vktestorg/teams/test1/memberships/vikramk20
-          MEMBERSHIP=$(curl -s -H "Authorization: token $PAT" "https://api.github.com/orgs/$ORG/teams/$TEAM/memberships/$USERNAME")
-
-          if [[ $MEMBERSHIP == *"\"state\": \"active\""* ]]; then
-              echo "User $USERNAME is a member of team $TEAM in organization $ORG."
-          else
-              echo "User $USERNAME is not a member of team $TEAM in organization $ORG."
-          fi
+          curl -s -H "Authorization: Bearer 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"  https://api.github.com/orgs/vktestorg/teams/test1/memberships/vikramk20
+          
