@@ -4,4 +4,19 @@ on:
 name: Check User Team Membership
 
 jobs:
-  
+  check-user:
+    name: Team affiliation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check user for team affiliation
+        uses: tspascoal/get-user-teams-membership@v2
+        id: teamAffiliation
+        with:
+          GITHUB_TOKEN: ${{ secrets.VK_PAT1 }}
+          username: vikramk20
+          team: vktestorg
+      - name: Stop workflow if user is no member
+        if: ${{ steps.teamAffiliation.outputs.isTeamMember == false }}
+        run: |
+          echo "You have no rights to trigger this job."
+          exit 1  
