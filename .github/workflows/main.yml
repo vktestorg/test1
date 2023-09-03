@@ -13,3 +13,8 @@ jobs:
           PAT=${{ secrets.VK_PAT1 }}
           MEMBERSHIP=`curl -s -H "Authorization: Bearer $PAT"  https://api.github.com/orgs/vktestorg/teams/test1/memberships/vikramk20`
           echo $MEMBERSHIP
+          if [[ $MEMBERSHIP == *"\"state\": \"active\""* ]]; then
+              echo "User $USERNAME is a member of team $TEAM in organization $ORG."
+          else
+              echo "User $USERNAME is not a member of team $TEAM in organization $ORG."
+          fi
