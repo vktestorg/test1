@@ -3,12 +3,6 @@ on:
   
 name: Check User Team Membership
 
-on:
-  workflow_run:
-    workflows: ["YourWorkflowName"]  # Replace with the name of your workflow that triggers this check
-    types:
-      - completed
-
 jobs:
   check_team_membership:
     runs-on: ubuntu-latest
