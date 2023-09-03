@@ -18,7 +18,7 @@ jobs:
           TEAM=test1
           # Replace with your Personal Access Token (PAT)
           PAT=${{ secrets.VK_TOK }}
-          curl -s   -H "Accept: application/vnd.github+json"   -H "Authorization: Bearer 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"   -H "X-GitHub-Api-Version: 2022-11-28"   https://api.github.com/orgs/vktestorg/teams/test1/memberships/vikramk20
+          curl -s -H "Accept: application/vnd.github+json"  -H "Authorization: Bearer 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"  https://api.github.com/orgs/vktestorg/teams/test1/memberships/vikramk20
           MEMBERSHIP=$(curl -s -H "Authorization: token $PAT" "https://api.github.com/orgs/$ORG/teams/$TEAM/memberships/$USERNAME")
 
           if [[ $MEMBERSHIP == *"\"state\": \"active\""* ]]; then
