@@ -13,7 +13,7 @@ jobs:
         id: teamAffiliation
         with:
           GITHUB_TOKEN: ${{ secrets.VK_PAT1 }}
-          username: vikramk20
+          username: raj-vlabs
           team: vktestorg
       - name: Stop workflow if user is no member
         if: ${{ steps.teamAffiliation.outputs.isTeamMember == false }}
