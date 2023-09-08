@@ -42,7 +42,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_PROD_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_PROD_SECRET_ACCESS_KEY }}
-          aws-region: eu-central-1
+          aws-region: ap-south-1
       - name: Sync files to S3 bucket
-        run: aws s3 cp dist s3://testapp --recursive
+        run: aws s3 cp aaa s3://testgithubvlabs/test --recursive
     
