@@ -32,7 +32,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: web-app-dist
-        path: ./
+        path: ./aaa
 
     - name: Display structure of downloaded files
       run: ls -R
