@@ -20,7 +20,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: web-app-dist
-        path: './dist'
+        path: './'
 
   deploy_to_production:
     name: Deploy to S3 Production
@@ -32,10 +32,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: web-app-dist
-        path: dist
+        path: ./
 
     - name: Display structure of downloaded files
       run: ls -R
-      working-directory: dist
 
     
