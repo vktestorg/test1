@@ -16,3 +16,5 @@ jobs:
         run: |
           echo "GitHub Event:"
           cat $GITHUB_EVENT_PATH | jq
+          echo "===============================\n"
+          echo "Release Tag Name: ${{ github.event.release.tag_name }}"
