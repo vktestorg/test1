@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+          ref: ${{ github.event.release.tag_name }}
+      - name: Print GitHub Event
+        run: |
+          ls
 
       - name: Print GitHub Event
         run: |
