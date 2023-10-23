@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Read the file in the reusable workflow directory
         run: |
-          cat ${{ github.event }}
+          jq ${{ github.event }}
