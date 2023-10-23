@@ -1,1 +1,13 @@
 
+on:
+  workflow_dispatch:
+  
+name: Check event
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read the file in the reusable workflow directory
+        run: |
+          cat ${{ github.event }}
