@@ -5,9 +5,14 @@ on:
 name: Check event
 
 jobs:
-  my_job:
+  print-event-values:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Read the file in the reusable workflow directory
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Print GitHub Event
         run: |
-          jq ${{ github.event }}
+          echo "GitHub Event:"
+          cat $GITHUB_EVENT_PATH | jq
