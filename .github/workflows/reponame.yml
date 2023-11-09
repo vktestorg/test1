@@ -1,0 +1,27 @@
+name: Print Repository Name
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  print-repository-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Repository Name
+        run: |
+          echo "Repository Name: ${{ github.event.repository.name }}"
+          echo "GitHub Event Name: $GITHUB_EVENT_NAME"
+          echo "GitHub Event Path: $GITHUB_EVENT_PATH"
+          echo "GitHub Workspace: $GITHUB_WORKSPACE"
+          echo "GitHub Action: $GITHUB_ACTION"
+          echo "GitHub Actor: $GITHUB_ACTOR"
+          echo "GitHub Repository: $GITHUB_REPOSITORY"
+          echo "GitHub Ref: $GITHUB_REF"
+          echo "GitHub Head Ref: $GITHUB_HEAD_REF"
+          echo "GitHub Base Ref: $GITHUB_BASE_REF"
+          echo "GitHub Workflow: $GITHUB_WORKFLOW"
+          echo "GitHub Workflow Run ID: $GITHUB_RUN_ID"
+          echo "GitHub SHA: $GITHUB_SHA"
+          echo "GitHub Run Number: $GITHUB_RUN_NUMBER"
+          echo "Release Tag Name: ${{ github.event.release.tag_name }}"
