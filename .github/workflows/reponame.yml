@@ -1,8 +1,7 @@
 name: Print Repository Name
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch:
 
 jobs:
   print-repository-name:
